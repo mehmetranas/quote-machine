@@ -12,17 +12,23 @@ $(document).ready(function () {
 
     var quotes = [];
 
-   $.ajax({
+    var onLoad = function (quote) {
+        $(".js-show p").text(quote.content)
+        $(".js-show cite").text(quote.author)
+    };
+
+    $.ajax({
       method:'GET',
        url: "https://codepen.io/CzrNdlcc/pen/YrvZML.js",
        dataType:"json",
        success:function (data) {
            quotes = data.quotes;
+           onLoad(quotes[0]);
+
        }
    });
 
-
-   var index = 0;
+    var index = 1;
 
    var change = function (class1,class2,quote) {
        if($("." + class2).length > 0){
@@ -48,4 +54,9 @@ $(document).ready(function () {
        index--;
        if(index<0) index = quotes.length-1;
     });
+
+    $(".social i").click(function () {
+       var text = "https://twitter.com/intent/tweet?text=" + $(".js-show p").text() + " (" + $(".js-show cite").text() + ")";
+        open(text,"_blank");
+    })
 });
