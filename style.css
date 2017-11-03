@@ -22,17 +22,31 @@ body,html{
     height: 100%;
 }
 
-
-
 .quote{
     height: 20px;
     background: none;
     margin: auto;
     position: absolute;
-    left: -100%;
+
     width: 100%;
     height: 100%;
     transition: 1s;
+}
+
+.not-transition{
+    transition: none !important;
+}
+
+.js-show{
+    left: 0px;
+}
+
+.js-left{
+    left: -100%;
+}
+
+.js-right{
+    left: 100%;
 }
 
 .content{
