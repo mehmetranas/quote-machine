@@ -28,7 +28,7 @@ $(document).ready(function () {
        }
    });
 
-    var index = 1;
+   var index = 0;
 
    var change = function (class1,class2,quote) {
        if($("." + class2).length > 0){
@@ -41,22 +41,23 @@ $(document).ready(function () {
        $("." + class1).addClass("js-show").removeClass(class1 + " not-transition");
    };
 
-    $(".js-next").click(function () {
+    $(".js-next").on("click", function () {
+        index++;
         var quote = quotes[index];
         change("js-left","js-right",quote);
-        index++;
         if(index>quotes.length-1) index = 0 ;
     });
 
-    $(".js-previous").click(function () {
+    $(".js-previous").on("click", function () {
+        index--;
         var quote = quotes[index];
-       change("js-right","js-left",quote);
-       index--;
-       if(index<0) index = quotes.length-1;
+        change("js-right","js-left",quote);
+        if(index<0) index = quotes.length-1;
     });
 
     $(".social i").click(function () {
        var text = "https://twitter.com/intent/tweet?text=" + $(".js-show p").text() + " (" + $(".js-show cite").text() + ")";
         open(text,"_blank");
-    })
+    });
+
 });

@@ -27,7 +27,6 @@ body,html{
 }
 
 .main{
-    height: 100%;
     background: linear-gradient(#3B3355 -30%,#ffdfde 50%,#3B3355 130%);
     margin:auto;
 }
@@ -39,20 +38,25 @@ body,html{
 }
 
 .quote{
-    top: 45%;
+    top:20%;
     bottom: 45%;
     height: 50%;
     background: none;
     margin: auto;
     position: absolute;
-    border-top: solid 1px #BF043A;
-    border-bottom: solid 1px #BF043A;
     width: 100%;
     transition: 1s;
 }
 
 .quote .content{
     padding-left: 10px;
+    border-top: solid 1px #BF043A;
+    border-bottom: solid 1px #BF043A;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    height: auto
 }
 
 .quote p{
@@ -60,17 +64,13 @@ body,html{
     font-size: 25px;
 }
 
-@media (min-width: 750px) and (max-width:1000px) {
-    .quote p{
-        font-size: 20px;
-    }
+.quote i{
+    margin-top: 30px;
 }
-
 
 .quote cite{
     font-family: 'Cinzel', serif;
 }
-
 
 .not-transition{
     transition: none !important;
@@ -86,14 +86,6 @@ body,html{
 
 .js-right{
     left: 100%;
-}
-
-.content{
-    position: absolute;
-    top: 40%;
-    left: 0;
-    margin: auto;
-    height: auto
 }
 
 .previous{
@@ -118,6 +110,7 @@ body,html{
     height: 10%;
     position: absolute;
     bottom: 90px;
+    left:0px;
     width: 100%;
     color: #1D3557;
 }
@@ -127,3 +120,59 @@ body,html{
     cursor: pointer;
 
 }
+
+.smallSizeButtons{
+   display:none;
+   margin-left: 36%;
+}
+
+@media (max-width: 750px) {
+    .quote p,
+    .quote i {
+        font-size: smaller;
+    }
+    .quote i{
+        margin-top: 20px;
+    }
+
+    .quote{
+        height: 30%;
+        top:50%
+    }
+
+    .previous,
+    .next{
+        display: none;
+    }
+
+    .smallSizeButtons{
+        display: block;
+    }
+
+    .smallSizeButtons button{
+        color: #3B3355;
+        background-color: #FC5083;
+        border-color: #FC5083;
+    }
+
+    .social{
+        bottom: 130px;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1045px) {
+    .quote p,
+    .quote i {
+        font-size: 115%;
+    }
+
+    .quote{
+        height: 30%;
+        top:40%;
+    }
+
+    .social{
+        bottom: 200px;
+    }
+}
+
